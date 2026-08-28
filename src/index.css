@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary-yellow: #FFB82E;
+    --color-dark-charcoal: #171717;
+    --color-secondary-dark: #252525;
+    --color-bg-gray: #D9D9D9;
+    --color-soft-gray: #E6E6E6;
+    --color-text-gray: #555555;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #D9D9D9;
+    color: #171717;
+  }
+}
+
+.font-display {
+  font-family: 'Bebas Neue', 'Anton', 'Oswald', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.font-body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Outlined heading text style matching reference */
+.text-stroke-charcoal {
+  -webkit-text-stroke: 1.5px #171717;
+  color: transparent;
+}
+
+.text-stroke-yellow {
+  -webkit-text-stroke: 1.5px #FFB82E;
+  color: transparent;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E6E6E6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #171717;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFB82E;
+}
+
+/* Dashed and decorative lines */
+.dashed-rail {
+  background-image: linear-gradient(to bottom, #171717 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: left;
+  background-size: 2px 10px;
+  background-repeat: repeat-y;
+}
+
+/* Print Specific Rules for Perfect A4 Alignment */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+
+  body {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide everything except printable container during print */
+  body > * {
+    visibility: hidden;
+  }
+
+  #printable-resume-content,
+  #printable-resume-content * {
+    visibility: visible;
+  }
+
+  #printable-resume-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .print\\:hidden {
+    display: none !important;
+  }
+}
+
